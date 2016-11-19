@@ -7,4 +7,4 @@ A API está responsável por cuidar do transporte da informação entre o banco 
 O APP WEB está responsável pela iteração com o usuário, onde é possível realizar o upload dos arquivos MP3, e verificar as informações dos arquivos que foram submetidos.
 A aplicação permite realizar upload de arquivos MP3 repetidos.
 
-Para mais informações leia o arquico Organizador de Músicas.docx da pasta Documentação.
+Para mais informações leia o arquivo Organizador de Músicas.docx da pasta Documentação.
