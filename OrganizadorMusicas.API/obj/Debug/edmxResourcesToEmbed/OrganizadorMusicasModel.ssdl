@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbAlbum">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="150" />
+    <Property Name="capa" Type="image" />
+  </EntityType>
+  <EntityType Name="tbArtista">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbGenero">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomeGenero" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbMidia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="150" />
+    <Property Name="ano" Type="int" />
+    <Property Name="numero" Type="int" />
+    <Property Name="idGenero" Type="int" />
+    <Property Name="idAlbum" Type="int" />
+    <Property Name="idArtista" Type="int" />
+  </EntityType>
+  <EntityContainer Name="MusicasModelStoreContainer">
+    <EntitySet Name="tbAlbum" EntityType="Self.tbAlbum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbArtista" EntityType="Self.tbArtista" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbGenero" EntityType="Self.tbGenero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMidia" EntityType="Self.tbMidia" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

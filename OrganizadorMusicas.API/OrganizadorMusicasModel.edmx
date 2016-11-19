@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MusicasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbAlbum">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="150" />
+          <Property Name="capa" Type="image" />
+        </EntityType>
+        <EntityType Name="tbArtista">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tbGenero">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeGenero" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbMidia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="150" />
+          <Property Name="ano" Type="int" />
+          <Property Name="numero" Type="int" />
+          <Property Name="idGenero" Type="int" />
+          <Property Name="idAlbum" Type="int" />
+          <Property Name="idArtista" Type="int" />
+        </EntityType>
+        <EntityContainer Name="MusicasModelStoreContainer">
+          <EntitySet Name="tbAlbum" EntityType="Self.tbAlbum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbArtista" EntityType="Self.tbArtista" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbGenero" EntityType="Self.tbGenero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMidia" EntityType="Self.tbMidia" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbArtista">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbGenero">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeGenero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbMidia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="numero" Type="Int32" />
+          <Property Name="idGenero" Type="Int32" />
+          <Property Name="idAlbum" Type="Int32" />
+          <Property Name="idArtista" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="MusicasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbArtista" EntityType="Self.tbArtista" />
+          <EntitySet Name="tbGenero" EntityType="Self.tbGenero" />
+          <EntitySet Name="tbMidia" EntityType="Self.tbMidia" />
+          <EntitySet Name="tbAlbum" EntityType="MusicasModel.tbAlbum" />
+        </EntityContainer>
+        <EntityType Name="tbAlbum">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="capa" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicasModelStoreContainer" CdmEntityContainer="MusicasEntities">
+          <EntitySetMapping Name="tbArtista">
+            <EntityTypeMapping TypeName="MusicasModel.tbArtista">
+              <MappingFragment StoreEntitySet="tbArtista">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbGenero">
+            <EntityTypeMapping TypeName="MusicasModel.tbGenero">
+              <MappingFragment StoreEntitySet="tbGenero">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nomeGenero" ColumnName="nomeGenero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbMidia">
+            <EntityTypeMapping TypeName="MusicasModel.tbMidia">
+              <MappingFragment StoreEntitySet="tbMidia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+                <ScalarProperty Name="idAlbum" ColumnName="idAlbum" />
+                <ScalarProperty Name="idArtista" ColumnName="idArtista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbAlbum">
+            <EntityTypeMapping TypeName="MusicasModel.tbAlbum">
+              <MappingFragment StoreEntitySet="tbAlbum">
+                <ScalarProperty Name="capa" ColumnName="capa" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

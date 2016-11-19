@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MusicasModelStoreContainer" CdmEntityContainer="MusicasEntities">
+    <EntitySetMapping Name="tbArtista">
+      <EntityTypeMapping TypeName="MusicasModel.tbArtista">
+        <MappingFragment StoreEntitySet="tbArtista">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbGenero">
+      <EntityTypeMapping TypeName="MusicasModel.tbGenero">
+        <MappingFragment StoreEntitySet="tbGenero">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nomeGenero" ColumnName="nomeGenero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbMidia">
+      <EntityTypeMapping TypeName="MusicasModel.tbMidia">
+        <MappingFragment StoreEntitySet="tbMidia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+          <ScalarProperty Name="idAlbum" ColumnName="idAlbum" />
+          <ScalarProperty Name="idArtista" ColumnName="idArtista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbAlbum">
+      <EntityTypeMapping TypeName="MusicasModel.tbAlbum">
+        <MappingFragment StoreEntitySet="tbAlbum">
+          <ScalarProperty Name="capa" ColumnName="capa" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

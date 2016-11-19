@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbArtista">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbGenero">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeGenero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbMidia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="numero" Type="Int32" />
+    <Property Name="idGenero" Type="Int32" />
+    <Property Name="idAlbum" Type="Int32" />
+    <Property Name="idArtista" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="MusicasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbArtista" EntityType="Self.tbArtista" />
+    <EntitySet Name="tbGenero" EntityType="Self.tbGenero" />
+    <EntitySet Name="tbMidia" EntityType="Self.tbMidia" />
+    <EntitySet Name="tbAlbum" EntityType="MusicasModel.tbAlbum" />
+  </EntityContainer>
+  <EntityType Name="tbAlbum">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="capa" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>
